@@ -17,10 +17,13 @@ repositories {
 dependencies {
     compile("org.apache.commons:commons-lang3:3.+")
 
+    compile("com.google.guava:guava:23.0")
+    compile("org.fusesource:sigar:1.6.4") {
+        exclude group: 'log4j', module: 'log4j'
+    }
+
     compile("org.springframework.boot:spring-boot-starter:1.5.+")
     compile("org.springframework.boot:spring-boot-starter-log4j2:1.5+")
-    compile("org.springframework.boot:spring-boot-starter-actuator:1.5.+")
-    compile("org.springframework.boot:spring-boot-starter-web:1.5.+")
 
     testCompile("junit:junit:4.12")
     testCompile("org.springframework.boot:spring-boot-starter-test:1.5.+")
