@@ -3,3 +3,8 @@ spring:
     profiles:
         active: dev
 
+# Spring actuator settings
+management:
+    security:
+        enabled: false
+
