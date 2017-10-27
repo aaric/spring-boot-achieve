@@ -45,6 +45,7 @@ public class HardwareServiceImpl implements HardwareService {
             CpuPerc[] cpuPercs = sigar.getCpuPercList();
 
             // 构建完整数据信息
+            Date current = Calendar.getInstance().getTime();
             if ((null != cpuInfos && 0 < cpuInfos.length) && (null != cpuPercs && 0 < cpuPercs.length)) {
                 CpuInfo cpuInfo;
                 CpuPerc cpuPerc;
@@ -56,7 +57,7 @@ public class HardwareServiceImpl implements HardwareService {
                     hardwareCpuInfo.setUsedPercent(cpuPerc.getUser() + cpuPerc.getSys()); // user + system
                     /*hardwareCpuInfo.setFreePercent(cpuPerc.getSys());*/
                     hardwareCpuInfo.setFreePercent(1 - hardwareCpuInfo.getUsedPercent());
-                    hardwareCpuInfo.setDetectionTime(Calendar.getInstance().getTime());
+                    hardwareCpuInfo.setDetectionTime(current);
                     cpuInfoList.add(hardwareCpuInfo);
                 }
             }
