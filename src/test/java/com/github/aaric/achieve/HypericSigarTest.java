@@ -1,9 +1,11 @@
 package com.github.aaric.achieve;
 
-import com.github.aaric.achieve.util.SigarUtil;
 import org.hyperic.sigar.*;
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * HypericSigarTest
@@ -11,14 +13,12 @@ import org.junit.Test;
  * @author Aaric, created on 2017-10-26T13:38.
  * @since 1.0-SNAPSHOT
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class HypericSigarTest {
 
+    @Autowired
     protected Sigar sigar;
-
-    @Before
-    public void begin() {
-        sigar = SigarUtil.getInstance();
-    }
 
     @Test
     public void testCpuInfo() throws SigarException {
