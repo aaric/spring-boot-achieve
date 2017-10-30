@@ -2,3 +2,13 @@
 spring:
     profiles:
         active: dev
+
+# Tomcat settings
+server:
+    port: 8080
+    context-path: /
+    compression:
+        enabled: true
+    tomcat:
+        uri-encoding: UTF-8
+

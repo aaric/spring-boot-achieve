@@ -54,7 +54,7 @@ public class HardwareServiceImpl implements HardwareService {
                     cpuInfo = cpuInfos[i];
                     cpuPerc = cpuPercs[i];
                     hardwareCpuInfo = new HardwareCpuInfo(cpuInfo.getVendor(), cpuInfo.getModel(), cpuInfo.getMhz());
-                    hardwareCpuInfo.setUsedPercent(cpuPerc.getUser() + cpuPerc.getSys()); // user + system
+                    hardwareCpuInfo.setUsedPercent(cpuPerc.getUser());
                     /*hardwareCpuInfo.setFreePercent(cpuPerc.getSys());*/
                     hardwareCpuInfo.setFreePercent(1 - hardwareCpuInfo.getUsedPercent());
                     hardwareCpuInfo.setDetectionTime(current);

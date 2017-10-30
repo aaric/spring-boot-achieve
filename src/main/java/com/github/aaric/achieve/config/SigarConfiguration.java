@@ -2,6 +2,8 @@ package com.github.aaric.achieve.config;
 
 import com.google.common.io.Resources;
 import org.hyperic.sigar.Sigar;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,6 +18,11 @@ import java.io.IOException;
  */
 @Configuration
 public class SigarConfiguration {
+
+    /**
+     * Logger
+     */
+    private static final Logger logger = LoggerFactory.getLogger(SigarConfiguration.class);
 
     /**
      * types of Operating Systems
@@ -57,6 +64,7 @@ public class SigarConfiguration {
         String file = Resources.getResource("sigar/.sigar_shellrc").getFile();
         File classPath = new File(file).getParentFile();
         String path = System.getProperty("java.library.path");
+        logger.info("JavaLibraryPath: {}", path);
         try {
             if (getOperatingSystemType() == OSType.Windows) {
                 path += ";" + classPath.getCanonicalPath();
