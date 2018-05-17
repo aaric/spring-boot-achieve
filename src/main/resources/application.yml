@@ -1,4 +1,18 @@
 # Spring settings
 spring:
+    redis:
+        host: 127.0.0.1
+        port: 6379
+        database: 0
     profiles:
         active: dev
+
+# Tomcat settings
+server:
+    port: 8080
+    context-path: /
+    compression:
+        enabled: true
+    tomcat:
+        uri-encoding: UTF-8
+
