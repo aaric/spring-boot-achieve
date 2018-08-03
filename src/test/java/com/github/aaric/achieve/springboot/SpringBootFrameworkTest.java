@@ -2,6 +2,7 @@ package com.github.aaric.achieve.springboot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -15,8 +16,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class SpringBootFrameworkTest {
 
+    @Value("${project.java-home}")
+    private String javaHomePath;
+
+    @Value("${project.kotlin-home}")
+    private String kotlinHomePath;
+
     @Test
-    public void testPrint() {
-        System.out.println("hello");
+    public void testPrintEnvParams() {
+        System.out.println(javaHomePath);
+        System.out.println(kotlinHomePath);
     }
 }

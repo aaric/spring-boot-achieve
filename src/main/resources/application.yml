@@ -11,3 +11,8 @@ server:
 spring:
     profiles:
         active: dev
+
+# Project settings
+project:
+    java-home: ${JAVA_HOME}
+    kotlin-home: ${KOTLIN_HOME:Find nothing!!!}-Append Static Remark.
