@@ -1,5 +1,5 @@
 group 'com.github.aaric'
-version '0.1.0-SNAPSHOT'
+version '0.2.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
@@ -8,9 +8,8 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
-    maven {
-        jcenter()
-    }
+    /*jcenter()*/
+    maven { url 'https://maven.aliyun.com/repository/public' }
 }
 
 dependencies {
@@ -29,7 +28,8 @@ configurations {
 
 buildscript {
     repositories {
-        jcenter()
+        /*jcenter()*/
+        maven { url 'https://maven.aliyun.com/repository/public' }
     }
 
     dependencies {
