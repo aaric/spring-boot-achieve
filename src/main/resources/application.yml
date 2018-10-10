@@ -11,6 +11,10 @@ server:
 spring:
     profiles:
         active: dev
+    messages:
+        basename: i18n/tips
+        cache-duration: 86400
+        encoding: UTF-8
 
 # Project settings
 project:
