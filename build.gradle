@@ -1,5 +1,5 @@
 group 'com.github.aaric'
-version '0.1.0-SNAPSHOT'
+version '0.2.1-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
@@ -8,16 +8,19 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
-    maven {
-        jcenter()
-    }
+    /*jcenter()*/
+    maven { url 'https://maven.aliyun.com/repository/public' }
 }
 
 dependencies {
     compile("org.apache.commons:commons-lang3:3.+")
 
     compile("org.springframework.boot:spring-boot-starter:1.5.+")
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.+")
     compile("org.springframework.boot:spring-boot-starter-log4j2:1.5+")
+
+    compile("io.springfox:springfox-swagger2:2.7.+")
+    compile("io.springfox:springfox-swagger-ui:2.7.+")
 
     testCompile("junit:junit:4.12")
     testCompile("org.springframework.boot:spring-boot-starter-test:1.5.+")
@@ -29,7 +32,8 @@ configurations {
 
 buildscript {
     repositories {
-        jcenter()
+        /*jcenter()*/
+        maven { url 'https://maven.aliyun.com/repository/public' }
     }
 
     dependencies {
