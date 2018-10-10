@@ -25,8 +25,8 @@ public class UserInfo {
     /**
      * 用户名
      */
-    @NotBlank(message = "用户名不能为空")
-    @Length(min = 5, max = 10, message = "用户名必须是5-10个字符")
+    @NotBlank(message = "{username.not.null.error}") //用户名不能为空
+    @Length(min = 5, max = 10, message = "{username.min.max.error}") //用户名必须是5-10个字符
     @ApiModelProperty(position = 2, value = "用户名")
     private String username;
 
@@ -39,8 +39,8 @@ public class UserInfo {
     /**
      * 电子邮箱
      */
-    @NotBlank(message = "电子邮箱不能为空")
-    @Email(message = "电子邮箱格式不正确")
+    @NotBlank(message = "{email.not.null.error}") //电子邮箱不能为空
+    @Email(message = "{email.format.error}") //电子邮箱格式不正确
     @ApiModelProperty(position = 4, value = "电子邮箱")
     private String email;
 

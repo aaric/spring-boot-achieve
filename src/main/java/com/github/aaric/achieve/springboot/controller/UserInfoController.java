@@ -4,6 +4,9 @@ import com.github.aaric.achieve.springboot.controller.api.UserInfoApi;
 import com.github.aaric.achieve.springboot.entity.UserInfo;
 import com.github.aaric.achieve.springboot.share.JsonMessage;
 import com.github.aaric.achieve.springboot.share.ValidatedMessage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * 用户信息模块控制器
@@ -22,10 +26,24 @@ import java.util.List;
 @RequestMapping("/userInfo")
 public class UserInfoController implements UserInfoApi {
 
+    @Autowired
+    private MessageSource messageSource;
+
+    /**
+     * 获得本地化字符串
+     *
+     * @param code i18n编码
+     * @return
+     */
+    private String getMessage(String code) {
+        Locale locale = LocaleContextHolder.getLocale();
+        return messageSource.getMessage(code, null, locale);
+    }
+
     @Override
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     public JsonMessage<UserInfo> get(@PathVariable("id") Integer id) {
-        return new JsonMessage<>(new UserInfo(1, "admin", "admin"));
+        return new JsonMessage<>(new UserInfo(1, "admin", getMessage("hello")));
     }
 
     @Override
