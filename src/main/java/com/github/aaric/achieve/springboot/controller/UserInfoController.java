@@ -2,6 +2,7 @@ package com.github.aaric.achieve.springboot.controller;
 
 import com.github.aaric.achieve.springboot.controller.api.UserInfoApi;
 import com.github.aaric.achieve.springboot.entity.UserInfo;
+import com.github.aaric.achieve.springboot.share.JsonMessage;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +20,7 @@ public class UserInfoController implements UserInfoApi {
 
     @Override
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    public UserInfo get(@PathVariable("id") Integer id) {
-        return new UserInfo(1, "root", "123456");
+    public JsonMessage<UserInfo> get(@PathVariable("id") Integer id) {
+        return new JsonMessage<>(new UserInfo(1, "admin", "admin"));
     }
 }

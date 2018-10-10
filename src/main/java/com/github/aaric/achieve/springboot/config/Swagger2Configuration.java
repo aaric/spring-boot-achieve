@@ -55,10 +55,11 @@ public class Swagger2Configuration {
     private List<Parameter> operationParameters() {
         // 支持标准国际化
         ParameterBuilder builder = new ParameterBuilder();
-        builder.name(LocaleChangeInterceptor.DEFAULT_PARAM_NAME).description("国际化参数，默认zh_CN(简体中文), en_US(英文)")
+        builder.name(LocaleChangeInterceptor.DEFAULT_PARAM_NAME).description("标准国际化参数：zh_CN-简体中文（默认），en_US-英文")
                 .modelRef(new ModelRef("String"))
                 .parameterType("query")
-                .required(false);
+                .required(false)
+                .defaultValue("zh_CN");
 
         // 构建全局参数列表
         List<Parameter> list = new ArrayList<>();

@@ -1,6 +1,7 @@
 package com.github.aaric.achieve.springboot.controller.api;
 
 import com.github.aaric.achieve.springboot.entity.UserInfo;
+import com.github.aaric.achieve.springboot.share.JsonMessage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -22,9 +23,8 @@ public interface UserInfoApi {
      * @return
      */
     @ApiOperation("获得用户信息")
-    //@ApiOperation(value = "获得用户信息", notes = "根据用户ID获得用户信息")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "用户ID", dataType = "Integer", paramType = "path", required = true)
+            @ApiImplicitParam(name = "id", value = "用户ID", dataType = "Integer", paramType = "path", required = true, defaultValue = "1")
     })
-    UserInfo get(Integer id);
+    JsonMessage<UserInfo> get(Integer id);
 }
